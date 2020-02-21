@@ -15,9 +15,15 @@ function update(car, id) {
         .update(car) 
 }
 
+function remove(id) {
+    return db('cars')
+        .where({id})
+        .delete()
+}
+
 module.exports = {
     find,
     insert,
     update,
-    // remove
+    remove
 }

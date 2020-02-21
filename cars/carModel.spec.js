@@ -40,4 +40,14 @@ describe('Hobbits model', () => {
             expect(car.model).toBe('LTD');
         })
     })
+
+    describe('remove', () => {
+        it('Should delete car.', async () => {
+            await cars.insert({make:'Ford', model:'LTD'});
+            await cars.insert({make:'Ford', model:'LTD'});
+            await cars.remove(2);
+            const carsDB = await db('cars');
+            expect(carsDB).toHaveLength(1);
+        })
+    })
 })
