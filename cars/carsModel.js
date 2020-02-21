@@ -9,9 +9,15 @@ function insert(car) {
         .insert(car, 'id')
 }
 
+function update(car, id) {
+    return db('cars')
+        .where({id})
+        .update(car) 
+}
+
 module.exports = {
     find,
     insert,
-    // update,
+    update,
     // remove
 }
